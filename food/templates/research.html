@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+
+{% block body %}
+<div style="background-color: #eaf5f7;">
+    <form>
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="text-white text-center py-4 mb-1 col-sm-4" style="background-color: #61a3e0;" for="exampleFormControlSelect1">グルメ情報検索</label>
+          </div>
+    
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">エリア</label>
+            <select class="form-control ml-sm-2 col-sm-3" id="exampleFormControlSelect1">
+                <option>選択してください</option>
+                <option>名古屋市</option>
+                <option>豊田市</option>
+                <option>〇〇市</option>
+                <option>××市</option>
+                <option>△△市</option>
+            </select>
+          </div>
+    
+          <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">ジャンル</label>
+            <select class="form-control text-center  ml-sm-2 col-sm-3" id="exampleFormControlSelect1">
+                <option>選択してください</option>
+                <option>カフェ</option>
+                <option>居酒屋</option>
+                <option>うなぎ</option>
+                <option>ラーメン</option>
+            </select>
+          </div>      
+      
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">予算</label>
+            <select class="form-control text-center ml-sm-2 col-sm-3" id="exampleFormControlSelect1">
+                <option>選択してください</option>
+                <option>０~1000</option>
+                <option>1001~2000</option>
+                <option>2001~3000</option>
+                <option>3001~4000</option>
+                <option>4001~5000</option>
+                <option>5000~</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <button type="button" class="btn col-sm-1" style="background-color: #70e061;">検索する</button>
+        </div>
+    </form>  
+</div>
+
+
+{% endblock %}
+

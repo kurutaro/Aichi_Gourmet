@@ -8,15 +8,15 @@ from django.views.generic import ListView
 def index(request):
     return render(request, 'index.html')
 
-# def about(request):
-#     return render(request, 'about.html') 
 
-def products(request):
-    return render(request, 'products.html')
+def post(request):
+    return render(request, 'post.html')
 
-def store(request):
-    return render(request, 'store.html') 
+def other(request):
+    return render(request, 'other.html') 
 
+def research(request):
+    return render(request, 'research.html')
 
 class ReviewListView(ListView):
     model = Review

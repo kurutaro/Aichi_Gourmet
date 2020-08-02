@@ -18,10 +18,9 @@ from . import views
 from food.views import ReviewListView
 
 urlpatterns = [
-    path('index.html', views.index, name='index'),
-    # path('about.html', views.about, name='about'),
-    path('products.html', views.products, name='products'),
-    path('store.html', views.store, name='store'),
-
-    path('about.html', ReviewListView.as_view(), name='research'),
+    path('index', views.index, name='index'),
+    path('research', views.research, name='research'),
+    path('post', views.post, name='post'),
+    path('other', views.other, name='other'),
+    # path('result', ReviewListView.as_view(), name='result'),
 ]
