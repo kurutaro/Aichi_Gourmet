@@ -3,7 +3,7 @@
 
 
 {% block body %}
-<div style="background-color: #eaf5f7;">
+<div class="pb-5" style="background-color: #eaf5f7;">
     <form action="" method="get">
         <div class="form-group row">
             <div class="col-sm-1"></div>
@@ -53,6 +53,31 @@
             <button type="submit" class="btn col-sm-1" style="background-color: #29f00b;">検索する</button>
         </div>
     </form>  
+</div>
+
+<div style="background-color: #eaf5f7;">
+    <div class="form-group row">
+        <div class="col-sm-1"></div>
+        <table class="col-sm-10" border="1">
+            <tr>
+                <th>店名</th>
+                <th>ジャンル</th>
+                <th>エリア</th>
+                <th>URL</th>
+                <th>登録者</th>
+            </tr>
+            {% for store_list in object_list %}
+            <tr>
+                <td>{{ store_list.store_name }}</td>
+                <td>{{ store_list.genre }}</td>
+                <td>{{ store_list.location }}</td>
+                <td>{{ store_list.link }}</td>
+                <td>{{ store_list.user }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="col-sm-1"></div>    
+    </div>    
 </div>
 
 

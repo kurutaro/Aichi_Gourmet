@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from food.views import ReviewListView
+from food.views import StoreListView
 
 urlpatterns = [
     path('index', views.index, name='index'),
-    path('research', views.research, name='research'),
+    # path('research', views.research, name='research'),
     path('post', views.post, name='post'),
     path('other', views.other, name='other'),
-    # path('result', ReviewListView.as_view(), name='result'),
+    path('research', StoreListView.as_view(), name='result'),
 ]
