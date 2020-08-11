@@ -3,32 +3,26 @@
 
 
 {% block body %}
-
-<div class="pt-5"　style="background-color: #eaf5f7;">
+<div class="py-5" style="background-color: #eaf5f7;">
     <div class="form-group row">
-        <div class="col-sm-1"></div>
-        <table class="col-sm-10" border="1">
-            <tr>
-                <th>ID</th>
-                <th>店名</th>
-                <th>ジャンル</th>
-                <th>エリア</th>
-                <th>URL</th>
-                <th>登録者</th>
-            </tr>
-            
-            <tr>
-                <td>{{ store.id }}</td>
-                <td>{{ store.store_name }}</td>
-                <td>{{ store.genre }}</td>
-                <td>{{ store.location }}</td>
-                <td><a href="{{ store.link }}">{{ store.link }}</a></td>
-                <td>{{ store.user }}</td>
-            </tr>
+        <div class="col-sm-2"></div>
+
+        <table class="col-sm-8" border="1">
+            <tr><th width="100" style="text-align:center">店名</th><td>{{ store.store_name }}</td></tr>
+            <tr><th width="100" style="text-align:center">ジャンル</th><td>{{ store.genre }}</td></tr>
+            <tr><th width="100" style="text-align:center">エリア</th><td>{{ store.location }}</td></tr>
+            <tr><th width="100" style="text-align:center">写真</th><td>{% for picture in store.pictures.all %} 
+                    <!-- <img src="{{ picture.picture.url }}" width="100" height="100"/> -->
+                    <img src="{{ picture.picture.url }}" width="435" height="auto"/>
+                {% endfor %}</td></tr>
+            <tr><th width="100" style="text-align:center">URL</th><td><a href="{{ store.link }}">{{ store.link }}</a></td></tr>
+            <tr><th width="100" style="text-align:center">コメント</th><td>{{ store.comment }}</td></tr>
+            <tr><th width="100" style="text-align:center">登録者</th><td>{{ store.user }}</td></tr>
         </table>
-        <div class="col-sm-1"></div>    
+        <div class="col-sm-2"></div>    
     </div>    
 </div>
 
-{% endblock %}
 
+
+{% endblock %}

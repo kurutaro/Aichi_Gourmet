@@ -17,6 +17,8 @@ from django.urls import path
 from . import views
 from food.views import StoreListView, StoreDetailView
 
+
+
 app_name = "stores"
 
 urlpatterns = [
@@ -26,3 +28,5 @@ urlpatterns = [
     path('research', StoreListView.as_view(), name='research'),
     path('<int:pk>/', StoreDetailView.as_view(), name='detail'),
 ]
+
+

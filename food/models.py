@@ -51,29 +51,22 @@ class User(models.Model):
 
 class Store(models.Model):
     #id = AutoField(primary_key=True)  # 自動的に追加されるので定義不要
-    store_name = models.CharField(max_length=20)
+    store_name = models.CharField(max_length=50)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     link = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=300, null=True)
 
     def __str__(self):
         return self.store_name
 
 
-class Comment(models.Model):
-    #id = AutoField(primary_key=True)  # 自動的に追加されるので定義不要
-    comment = models.CharField(max_length=255)
-    store = models.ForeignKey(Store, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.comment
-
 
 class Picture(models.Model):
     #id = AutoField(primary_key=True)  # 自動的に追加されるので定義不要
-    picture = models.FileField(null=True)
-    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    picture = models.ImageField(upload_to='documents/', default='defo')
+    store = models.ForeignKey(Store, related_name='pictures', on_delete=models.CASCADE)
 
 
 
