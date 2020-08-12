@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Genre, Location, User, Store, Picture
+from .forms import PostForm
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
@@ -13,11 +14,12 @@ def index(request):
 def post(request):
     return render(request, 'post.html')
 
+def fin(request):
+    return render(request, 'post_fin.html')
+
 def other(request):
     return render(request, 'other.html') 
 
-# def research(request):
-#     return render(request, 'research.html')
 
 
 #テーブルの検索
@@ -39,3 +41,14 @@ class StoreDetailView(DetailView):
 
 
 
+#フォームからデータベースへの登録
+def formfunc(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('stores:post_fin')
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {'form': form})
