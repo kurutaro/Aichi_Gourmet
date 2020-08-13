@@ -4,16 +4,23 @@
 
 {% block body %}
 
-    <form method="post" action="{% url 'stores:login' %}">
-        {% csrf_token %}
+<div class="row">
+    <div class="col-12">
+        <div class="col-lg-4"></div>
+        <form method="post" action="{% url 'stores:login' %}">
+            {% csrf_token %}
+    
+            <table class="table col-lg-7">
+                {{form}}
+            </table>
+            <input type="hidden" name="next" value="{{next}}">
+            <button class="btn btn-primary" type="submit">ログイン</button>
+        </form>
+        <div class="col-lg-1"></div>
 
-        <table class="table">
-            {{form}}
-        </table>
-        <input type="hidden" name="next" value="{{next}}">
-        <button class="btn btn-primary" type="submit">ログイン</button>
+    </div>
 
-    </form>
+</div>
 
 
 {% endblock %}

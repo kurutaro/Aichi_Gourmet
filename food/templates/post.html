@@ -4,10 +4,10 @@
 {% block body %}
 
 <div class="row py-5">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
     <form action="" method="post" enctype="multipart/form-data">
-      <h2>新規登録</h2>
+      <h2>登録フォーム</h2>
       {{ form.as_p }}
     
       <h2>添付ファイル</h2>
@@ -20,7 +20,7 @@
       {% csrf_token %}
       <button type="submit" class="btn btn-primary">送信</button>
     </form>
-  <div class="col-sm-3"></div>
+  <div class="col-lg-3"></div>
   </div>
 </div>
 

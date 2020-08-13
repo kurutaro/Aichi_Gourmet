@@ -4,17 +4,15 @@
 
 {% block body %}
 
-<div class="py-5" style="background-color: #eaf5f7;">
+<div class="col-12" style="background-color: #eaf5f7;">
     <form action="" method="get">
-        <div class="form-group row">
-            <div class="col-sm-1"></div>
-            <label class="text-white text-center py-4 mb-1 col-sm-4" style="background-color: #61a3e0;" for="exampleFormControlSelect1">グルメ情報検索</label>
+        <div class="form-group row pt-4">
+            <label class="text-white text-center py-4 ml-lg-3 col-lg-5 mx-sm-3" style="background-color: #61a3e0;" for="exampleFormControlSelect1">グルメ情報検索</label>
         </div>
     
         <div class="form-group row">
-            <div class="col-sm-1"></div>
-            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">エリア</label>
-            <select class="form-control ml-sm-2 col-sm-3" id="exampleFormControlSelect1" name="area" value="{{ request.GET.query }}">
+            <label class="bg-primary text-white text-center py-2 ml-lg-3 col-lg-2 mx-sm-3" for="exampleFormControlSelect1">エリア</label>
+            <select class="form-control col-lg-3 mx-sm-3" id="exampleFormControlSelect1" name="area" value="{{ request.GET.query }}">
                 <option>選択してください</option>
                 <option>名古屋市内</option>
                 <option>一宮・犬山・瀬戸</option>
@@ -25,9 +23,8 @@
         </div>
     
         <div class="form-group row">
-            <div class="col-sm-1"></div>
-            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">ジャンル</label>
-            <select class="form-control text-center  ml-sm-2 col-sm-3" id="exampleFormControlSelect1" name="genre" value="{{ request.GET.query }}">
+            <label class="bg-primary text-white text-center py-2 ml-lg-3 col-lg-2 mx-sm-3" for="exampleFormControlSelect1">ジャンル</label>
+            <select class="form-control text-center col-lg-3 mx-sm-3" id="exampleFormControlSelect1" name="genre" value="{{ request.GET.query }}">
                 <option>選択してください</option>
                 <option>カフェ</option>
                 <option>居酒屋</option>
@@ -36,45 +33,31 @@
             </select>
         </div>      
       
-        <!-- <div class="form-group row">
-            <div class="col-sm-1"></div>
-            <label class="bg-primary text-white text-center py-2 mb-2 col-sm-1" for="exampleFormControlSelect1">予算</label>
-            <select class="form-control text-center ml-sm-2 col-sm-3" id="exampleFormControlSelect1">
-                <option>選択してください</option>
-                <option>0~1000円</option>
-                <option>1001~2000円</option>
-                <option>2001~3000円</option>
-                <option>3001~4000円</option>
-                <option>4001~5000円</option>
-                <option>5000円~</option>
-            </select>
-        </div> -->
         <div class="row">
-            <div class="col-sm-1"></div>
-            <button type="submit" class="btn col-sm-1" style="background-color: #29f00b;">検索する</button>
+            <button type="submit" class="btn py-2 ml-lg-3 col-lg-2 mx-sm-3" style="background-color: #29f00b;">検索する</button>
         </div>
     </form>  
-</div>
 
 
-<div class="row pb-3 pl-5" style="background-color: #eaf5f7;" >
-    
-    {% for store_list in object_list %}
+    <div class="row">
+        {% for store_list in object_list %}
 
-    <div class="col-sm-5 ml-5 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{ store_list.store_name }}</h5>
-          <p class="card-text">ジャンル：{{ store_list.genre }}</p>
-          <p class="card-text">　エリア：{{ store_list.location }}</p>
-          <p class="card-text">　  URL：<a href="{{ store_list.link }}">{{ store_list.link }}</a></p>
-          <a href="{% url 'stores:detail' pk=store_list.id %}" class="btn btn-primary">Go detail</a>
+        <div class="col-6 my-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ store_list.store_name }}</h5>
+              <p class="card-text">ジャンル：{{ store_list.genre }}</p>
+              <p class="card-text">エリア：{{ store_list.location }}</p>
+              <p class="card-text">URL：<a href="{{ store_list.link }}">{{ store_list.link }}</a></p>
+              <a href="{% url 'stores:detail' pk=store_list.id %}" class="btn btn-primary">Go detail</a>
+            </div>
+          </div>
         </div>
-      </div>
+    
+        {% endfor %}
+
     </div>
-
-
-    {% endfor %}
 </div>
+
 {% endblock %}
 
