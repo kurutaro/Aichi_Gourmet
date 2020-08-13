@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
 from .forms import StoreForm, FileFormset
-from extra_views import InlineFormSetFactory, CreateWithInlinesView, UpdateWithInlinesView
+# from extra_views import InlineFormSetFactory, CreateWithInlinesView, UpdateWithInlinesView
 
 
 
@@ -68,37 +68,5 @@ def formfunc(request):
     return render(request, 'post.html', context)
 
 
-
-# フォームからデータベースへの登録
-# def formfunc(request):
-#     if request.method == 'POST':
-#         form = StoreForm(request.POST)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.save()
-#             return redirect('stores:post_fin')
-#     else:
-#         form = StoreForm()
-#     return render(request, 'post.html', {'form': form})
-
-
-
-
-
-
-
-
-# class PictureInline(InlineFormSetFactory):
-#     model = Picture
-#     fields = '__all__'
-
-
-# class StoreCreateView(CreateWithInlinesView):
-#     model = Store
-#     fields = ['store_name','genre', 'location', 'link', 'comment', 'user']
-#     context_object_name = 'store'
-#     inlines = [PictureInline]
-#     template_name = 'post.html'
-#     success_url = reverse_lazy('stores:post_fin')
 
 
