@@ -30,7 +30,7 @@
     <div class="col-sm-7">
         <div class="row">
             <form>
-                {% if request.user.id == message.author.id %}
+                {% if user.is_authenticated %}
                     <input type="button" class="btn btn-success" onclick="location.href='{% url 'stores:update_post' pk=store.pk %}'" value="編集する">
                 {% endif %}
 
@@ -39,7 +39,7 @@
             </form>
         
             <form class="ml-1" method="post" action="{% url 'stores:delete_post' pk=store.pk %}">{% csrf_token %}
-                {% if request.user.id == message.author.id %}
+                {% if user.is_authenticated %}
                     <button class="btn btn-danger" type="submit" onclick='return confirm("本当に削除しますか？");'>削除する</button>
                 {% endif %}
                 </form>
