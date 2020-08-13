@@ -19,7 +19,6 @@ from food.views import StoreListView, StoreDetailView, formfunc
 
 
 
-
 app_name = "stores"
 
 urlpatterns = [
@@ -30,6 +29,7 @@ urlpatterns = [
     path('other', views.other, name='other'),
     path('research', StoreListView.as_view(), name='research'),
     path('<int:pk>/', StoreDetailView.as_view(), name='detail'),
+    path('update/<int:pk>/', views.update_post, name='update_post'),
 ]
 
 

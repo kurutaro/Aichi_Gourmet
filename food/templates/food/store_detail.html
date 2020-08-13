@@ -3,7 +3,7 @@
 
 
 {% block body %}
-<div class="py-5" style="background-color: #eaf5f7;">
+<div class="pt-5 pb-1" style="background-color: #eaf5f7;">
     <div class="form-group row">
         <div class="col-sm-2"></div>
 
@@ -21,6 +21,21 @@
         </table>
         <div class="col-sm-2"></div>    
     </div>    
+</div>
+
+<div class="row  pb-5" style="background-color: #eaf5f7;">
+
+    <div class="col-sm-2"></div> 
+
+    <div class="col-sm-8">
+    <form style="text-align:left">
+        <input type="button" class="btn btn-primary" onclick="location.href='{% url 'stores:update_post' pk=store.pk %}'" value="編集する">
+        <input type="button" class="btn btn-primary" onclick="location.href='{% url 'stores:research' %}'" value="一覧に戻る">
+    </form>
+    </div>
+
+    <div class="col-sm-2"></div>
+
 </div>
 
 

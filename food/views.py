@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import Genre, Location, User, Store, Picture
@@ -6,7 +6,6 @@ from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
 from .forms import StoreForm, FileFormset
-# from extra_views import InlineFormSetFactory, CreateWithInlinesView, UpdateWithInlinesView
 
 
 
@@ -45,6 +44,7 @@ class StoreDetailView(DetailView):
 
 
 
+#店の新規登録
 def formfunc(request):
     form = StoreForm(request.POST or None)
     context = {'form': form}
@@ -69,4 +69,20 @@ def formfunc(request):
 
 
 
+#店のアップデート
+def update_post(request, pk):
+    post = get_object_or_404(Store, pk=pk)
+    form = StoreForm(request.POST or None, instance=post)
+    formset = FileFormset(request.POST or None, files=request.FILES or None, instance=post)
+    if request.method == 'POST' and form.is_valid() and formset.is_valid():
+        form.save()
+        formset.save()
+        # 編集ページを再度表示
+        return redirect('stores:post_fin')
 
+    context = {
+        'form': form,
+        'formset': formset
+    }
+
+    return render(request, 'post.html', context)
