@@ -2,21 +2,27 @@
 
 
 {% block body %}
-<div class="row py-5">
-    <div class="col-sm-3"></div>
-    
-    <div class="col-sm-6">
-        <h1>Create New Post</h1>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">登録する</button>
-        </form>
-    </div>
+<div class="row py-5">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <form action="" method="post" enctype="multipart/form-data">
+      <h2>新規登録</h2>
+      {{ form.as_p }}
     
-    <div class="col-sm-3"></div>
+      <h2>添付ファイル</h2>
+      {{ formset.management_form }}
+      {% for file_form in formset %}
+          {{ file_form.as_p }}
+          <hr>
+      {% endfor %}
+    
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">送信</button>
+    </form>
+  <div class="col-sm-3"></div>
+  </div>
 </div>
 
-
 {% endblock %}
+

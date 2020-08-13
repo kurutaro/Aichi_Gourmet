@@ -19,10 +19,12 @@ from food.views import StoreListView, StoreDetailView, formfunc
 
 
 
+
 app_name = "stores"
 
 urlpatterns = [
     path('index', views.index, name='index'),
+    # path('post', views.StoreCreateView.as_view(), name='post'),
     path('post', formfunc, name='post'),
     path('post_fin', views.fin, name='post_fin'),
     path('other', views.other, name='other'),
