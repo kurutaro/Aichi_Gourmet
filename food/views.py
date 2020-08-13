@@ -19,6 +19,9 @@ def post(request):
 def fin(request):
     return render(request, 'post_fin.html')
 
+def delete(request):
+    return render(request, 'post_delete.html')
+
 def other(request):
     return render(request, 'other.html') 
 
@@ -86,3 +89,10 @@ def update_post(request, pk):
     }
 
     return render(request, 'post.html', context)
+
+
+#店の削除
+def delete_post(request, pk):
+    post = get_object_or_404(Store, pk=pk)
+    post.delete()
+    return redirect('stores:post_delete')

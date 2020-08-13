@@ -26,10 +26,12 @@ urlpatterns = [
     # path('post', views.StoreCreateView.as_view(), name='post'),
     path('post', formfunc, name='post'),
     path('post_fin', views.fin, name='post_fin'),
+    path('post_delete', views.delete, name='post_delete'),
     path('other', views.other, name='other'),
     path('research', StoreListView.as_view(), name='research'),
     path('<int:pk>/', StoreDetailView.as_view(), name='detail'),
     path('update/<int:pk>/', views.update_post, name='update_post'),
+    path('delete/<int:pk>/', views.delete_post, name='delete_post'),
 ]
 
 

@@ -27,11 +27,18 @@
 
     <div class="col-sm-2"></div> 
 
-    <div class="col-sm-8">
-    <form style="text-align:left">
-        <input type="button" class="btn btn-primary" onclick="location.href='{% url 'stores:update_post' pk=store.pk %}'" value="編集する">
-        <input type="button" class="btn btn-primary" onclick="location.href='{% url 'stores:research' %}'" value="一覧に戻る">
-    </form>
+    <div class="col-sm-7">
+        <div class="row">
+            <form>
+                <input type="button" class="btn btn-success" onclick="location.href='{% url 'stores:update_post' pk=store.pk %}'" value="編集する">
+                <input type="button" class="btn btn-primary" onclick="history.back()" value="前のページに戻る">
+                <!-- <input type="button" class="btn btn-danger" onclick="location.href='{% url 'stores:delete_post' pk=store.pk %}'" value="削除する"> -->
+            </form>
+        
+            <form class="ml-1" method="post" action="{% url 'stores:delete_post' pk=store.pk %}">{% csrf_token %}
+                <button class="btn btn-danger" type="submit" onclick='return confirm("本当に削除しますか？");'>削除する</button>
+            </form>
+        </div>
     </div>
 
     <div class="col-sm-2"></div>
