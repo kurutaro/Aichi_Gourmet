@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import Genre, Location, User, Store, Picture
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 from .forms import StoreForm, FileFormset
 
@@ -48,6 +49,7 @@ class StoreDetailView(DetailView):
 
 
 #店の新規登録
+@login_required
 def formfunc(request):
     form = StoreForm(request.POST or None)
     context = {'form': form}
@@ -73,6 +75,7 @@ def formfunc(request):
 
 
 #店のアップデート
+@login_required
 def update_post(request, pk):
     post = get_object_or_404(Store, pk=pk)
     form = StoreForm(request.POST or None, instance=post)
@@ -92,6 +95,7 @@ def update_post(request, pk):
 
 
 #店の削除
+@login_required
 def delete_post(request, pk):
     post = get_object_or_404(Store, pk=pk)
     post.delete()

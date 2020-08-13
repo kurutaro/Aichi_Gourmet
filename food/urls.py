@@ -17,13 +17,14 @@ from django.urls import path
 from . import views
 from food.views import StoreListView, StoreDetailView, formfunc
 
+# from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import views as auth_views
 
 
 app_name = "stores"
 
 urlpatterns = [
     path('index', views.index, name='index'),
-    # path('post', views.StoreCreateView.as_view(), name='post'),
     path('post', formfunc, name='post'),
     path('post_fin', views.fin, name='post_fin'),
     path('post_delete', views.delete, name='post_delete'),
@@ -32,6 +33,10 @@ urlpatterns = [
     path('<int:pk>/', StoreDetailView.as_view(), name='detail'),
     path('update/<int:pk>/', views.update_post, name='update_post'),
     path('delete/<int:pk>/', views.delete_post, name='delete_post'),
+
+
+    path('login/', auth_views.LoginView.as_view(template_name="login.html"), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name="logout.html"), name='logout'),
 ]
 
 

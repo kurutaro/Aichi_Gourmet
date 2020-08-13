@@ -36,16 +36,3 @@ FileFormset = forms.inlineformset_factory(
     Store, Picture, fields='__all__',
     extra=10, max_num=10, can_delete=False
 )
-
-# class PictureForm(forms.ModelForm):
-
-#     class Meta:
-#         model = Picture
-#         fields = ('picture',)
-#         labels = {
-#             'picture': '写真',
-#         }
-
-#         help_texts = {
-#             'picture': '写真を登録してください',
-#         }
