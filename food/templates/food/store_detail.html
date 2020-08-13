@@ -13,7 +13,7 @@
             <tr><th width="100" style="text-align:center">エリア</th><td>{{ store.location }}</td></tr>
             <tr><th width="100" style="text-align:center">写真</th><td>{% for picture in store.pictures.all %} 
                     <!-- <img src="{{ picture.picture.url }}" width="100" height="100"/> -->
-                    <img src="{{ picture.picture.url }}" width="405" height="auto"/>
+                    <img src="{{ picture.picture.url }}" class="col-md-5 img-fluid  max-width: 100%; height: auto;"/>
                 {% endfor %}</td></tr>
             <tr><th width="100" style="text-align:center">URL</th><td><a href="{{ store.link }}">{{ store.link }}</a></td></tr>
             <tr><th width="100" style="text-align:center">コメント</th><td>{{ store.comment }}</td></tr>
