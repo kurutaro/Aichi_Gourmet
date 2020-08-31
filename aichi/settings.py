@@ -86,9 +86,11 @@ WSGI_APPLICATION = 'aichi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # 変更
-        'NAME': 'database_name', # プロジェクトで使用するデータベース名
-        'USER': 'root', # パソコンにインストールしたMySQLのユーザー名
-        'PASSWORD': '', # 同上。そのパスワード
+        'NAME': 'aichi', # プロジェクトで使用するデータベース名
+        'USER': 'root', # DBへ接続するユーザIDを設定
+        'PASSWORD': '', # DBへ接続するユーザIDのパスワードを設定
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
